@@ -1,0 +1,26 @@
+Name               Version   License
+aenum              2.2.6     BSD License
+aiohttp            3.7.4     Apache Software License
+anyio              3.3.4     MIT License
+async-timeout      3.0.1     Apache Software License
+attrs              21.2.0    MIT License
+chardet            3.0.4     GNU Library or Lesser General Public License (LGPL)
+fastapi            0.70.0    MIT License
+gremlinpython      3.5.1     Apache Software License
+idna               3.3       BSD License
+isodate            0.6.0     BSD License
+mangum             0.12.3    MIT License
+multidict          5.2.0     Apache Software License
+nest-asyncio       1.5.1     BSD License
+pydantic           1.8.2     MIT License
+six                1.16.0    MIT License
+sniffio            1.2.0     Apache Software License; MIT License
+starlette          0.16.0    BSD License
+typing-extensions  3.10.0.2  Python Software Foundation License
+yarl               1.7.2     Apache Software License
+axios              0.21.1    MIT
+core-js            3.6.5     MIT
+vis-data           7.1.2     MIT
+vis-network        9.0.4     MIT
+vue                2.6.11    MIT
+vue-router         3.2.0     MIT
