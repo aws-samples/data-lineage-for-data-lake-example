@@ -19,7 +19,7 @@ data "aws_availability_zones" "available" {}
 
 locals {
   post_fix               = "${data.aws_caller_identity.current.account_id}-${data.aws_region.current.name}"
-  spline_agent_file_path = "asset/lib/spark-3.1-spline-agent-bundle_2.12-0.7.4.jar"
+  spline_agent_file_path = "asset/lib/spark-3.1-spline-agent-bundle_2.12-0.6.1.jar"
 }
 
 output "api_url" {

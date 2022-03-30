@@ -5,6 +5,7 @@
 resource "aws_vpc" "main" {
   cidr_block       = "10.1.0.0/16"
   instance_tenancy = "default"
+  enable_dns_hostnames = true
 }
 
 resource "aws_vpc_endpoint" "s3" {
@@ -16,9 +17,11 @@ resource "aws_vpc_endpoint" "glue" {
   vpc_id       = aws_vpc.main.id
   service_name = "com.amazonaws.${local.region}.glue"
   vpc_endpoint_type = "Interface"
+  subnet_ids = "${aws_subnet.subnet.*.id}"
   security_group_ids = [
     aws_security_group.sg_neptune_db.id,aws_security_group.default.id
   ]
+  private_dns_enabled = true
 }
 
 resource "aws_subnet" "subnet" {

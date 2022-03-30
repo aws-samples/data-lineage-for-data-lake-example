@@ -20,7 +20,7 @@ git clone https://github.com/aws-samples/data-lineage-for-data-lake-example.git
 cd data-lineage-for-data-lake-example
 
 # download spline agent jar
-wget https://repo1.maven.org/maven2/za/co/absa/spline/agent/spark/spark-3.1-spline-agent-bundle_2.12/0.7.4/spark-3.1-spline-agent-bundle_2.12-0.7.4.jar -O ./asset/lib/spark-3.1-spline-agent-bundle_2.12-0.7.4.jar
+wget https://repo1.maven.org/maven2/za/co/absa/spline/agent/spark/spark-3.1-spline-agent-bundle_2.12/0.6.1/spark-3.1-spline-agent-bundle_2.12-0.6.1.jar -O ./asset/lib/spark-3.1-spline-agent-bundle_2.12-0.6.1.jar
 
 terraform init
 
