@@ -35,7 +35,7 @@ locals {
 
 resource "aws_neptune_subnet_group" "default" {
   name       = "data-lineage-neptune-subnet-group"
-  subnet_ids = data.aws_subnet_ids.default.ids
+  subnet_ids = "${aws_subnet.subnet.*.id}"
 }
 
 resource aws_security_group "sg_neptune_db" {
@@ -44,7 +44,7 @@ resource aws_security_group "sg_neptune_db" {
     from_port  = local.neptune_db_port
     to_port = local.neptune_db_port
     protocol = "tcp"
-    cidr_blocks = [data.aws_vpc.current.cidr_block]
+    cidr_blocks = [aws_vpc.main.cidr_block]
   }
   egress {
     from_port = 0
@@ -52,7 +52,7 @@ resource aws_security_group "sg_neptune_db" {
     to_port   = 0
     cidr_blocks = ["0.0.0.0/0"]
   }
-  vpc_id = data.aws_vpc.current.id
+  vpc_id = aws_vpc.main.id
 }
 
 resource "aws_neptune_cluster" "default" {

@@ -13,15 +13,16 @@ To deploy the solution to AWS Cloud with terraform, export your AWS Credentials 
 
 ![alt text](./asset/figure/architecture.png "Architecture Diagram")
 
-Variables (in _terraform.tfvars_):
-  - VPC ID: the VPC to host Amazon Neptune database and lambda functions. You can choose AWS default VPC
-  - **Important!** Glue VPC endpoint is required in the selected VPC
   
 ```
-terraform init
+brew install terraform
+git clone https://github.com/aws-samples/data-lineage-for-data-lake-example.git
+cd data-lineage-for-data-lake-example
 
 # download spline agent jar
-wget https://repo1.maven.org/maven2/za/co/absa/spline/agent/spark/spark-2.4-spline-agent-bundle_2.11/0.5.6/spark-2.4-spline-agent-bundle_2.11-0.5.6.jar -O ./asset/lib/spark-2.4-spline-agent-bundle_2.11-0.5.6.jar
+wget https://repo1.maven.org/maven2/za/co/absa/spline/agent/spark/spark-3.1-spline-agent-bundle_2.12/0.7.4/spark-3.1-spline-agent-bundle_2.12-0.7.4.jar -O ./asset/lib/spark-3.1-spline-agent-bundle_2.12-0.7.4.jar
+
+terraform init
 
 terraform apply
 ```
@@ -29,7 +30,7 @@ terraform apply
 To build and test the lineage visual application locally:
 - update the lineage backend address in `src/lineage-visual/src/main.js`
 ```javascript
-axios.defaults.baseURL = "https://xxx.execute-api.eu-west-1.amazonaws.com/dev";
+axios.defaults.baseURL = "https://xxx.execute-api.<aws-region>.amazonaws.com/dev";
 ```
 
 ```shell
