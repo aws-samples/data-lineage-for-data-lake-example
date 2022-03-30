@@ -109,7 +109,7 @@ resource aws_lambda_function producer {
     }
   }
   vpc_config {
-    subnet_ids         = data.aws_subnet_ids.default.ids
+    subnet_ids         = "${aws_subnet.subnet.*.id}"
     security_group_ids = [aws_security_group.default.id]
   }
   image_config {
@@ -134,7 +134,7 @@ resource aws_lambda_function consumer {
     }
   }
   vpc_config {
-    subnet_ids         = data.aws_subnet_ids.default.ids
+    subnet_ids         = "${aws_subnet.subnet.*.id}"
     security_group_ids = [aws_security_group.default.id]
   }
   image_config {

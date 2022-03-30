@@ -12,7 +12,7 @@ resource "aws_glue_job" "job" {
     python_version  = 3
     script_location = "s3://${var.s3_bucket_name}/script/${basename(var.script_file_path)}"
   }
-  glue_version      = "2.0"
+  glue_version      = "3.0"
   number_of_workers = 2
   worker_type       = "Standard"
   default_arguments = merge (
