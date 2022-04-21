@@ -2,6 +2,8 @@
 # Glue data catalog
 ################################################################
 
+data "aws_partition" "current" {}
+
 resource "aws_glue_catalog_database" "data_lake_raw_db" {
   name = "raw_db"
 }
@@ -113,8 +115,8 @@ resource "aws_iam_role" "glue_execution_role" {
 
 resource "aws_iam_role_policy_attachment" "glue_service_role" {
   for_each   = toset([
-    "arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole",
-    "arn:aws:iam::aws:policy/AmazonS3FullAccess",
+    "arn:${data.aws_partition.current.partition}:iam::aws:policy/service-role/AWSGlueServiceRole",
+    "arn:${data.aws_partition.current.partition}:iam::aws:policy/AmazonS3FullAccess",
   ])
   role       = aws_iam_role.glue_execution_role.name
   policy_arn = each.value
